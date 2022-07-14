@@ -4,6 +4,7 @@ import { Theme } from './Settings';
 import { CardFooter } from './CardFooter';
 import { TagArea } from './TagArea';
 import { CanvasContext } from './CanvasContext';
+import { SnapshotManager } from './SnapshotManager';
 
 export function Card(props) {
 
@@ -25,9 +26,12 @@ export function Card(props) {
             if (props.setHeight) {
                 props.setHeight(fullHeight)
             }
-            setHeight(fullHeight)
+            setHeight(fullHeight);
         }
-    }, [ref])
+        if (props.done) {
+            SnapshotManager.schedule(props.id, props.x, props.y, Theme.CardWidth, height)
+        }
+}, [ref, props.done])
 
     const actions = useContext(CanvasContext);
 

@@ -1,10 +1,10 @@
 import React from 'react';
 import { Rect, Text } from 'react-konva';
 import { Theme } from './Settings';
-import { Card } from './Card';
+import { AnimationCard } from './AnimationCard';
 import { DragArea } from './DragArea';
 
-export function Lane(props) {
+export function AnimationLane(props) {
  
     if (props.index === 0) {
         console.log("!***************************************");
@@ -97,7 +97,7 @@ let renderDragArea = () => {
         <>
         <Rect cornerRadius={Theme.LaneRadius} x={props.x} width={Theme.LaneWidth} y={Theme.LaneYpos} height={800} fill={Theme.LaneColor} />
         <Text text={props.title} x={props.x+10} y={Theme.LaneYpos+10} fontSize={Theme.LaneTitleFontSize} />
-        {props.cards.map((card, index) => (<Card done={done} setHeight={(height) => setHeight(index, height, card.id)} y={getCardY(index)} x={getCardX()} key={index} card={card} index={index} />))}
+        {props.cards.map((card, index) => (<AnimationCard done={done} setHeight={(height) => setHeight(index, height, card.id)} y={getCardY(index)} x={getCardX()} key={index} card={card} index={index} />))}
         {renderDragArea()}
         </>
     );
