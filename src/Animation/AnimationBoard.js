@@ -1,9 +1,9 @@
 import React, {useEffect} from 'react';
 import { Stage, Layer, FastLayer } from 'react-konva';
 import { AnimationLanes } from './AnimationLanes';
-import { BackgroundArea } from './BackgroundArea';
-import { DragCard } from './DragCard';
-import { SnapshotManager } from './SnapshotManager';
+import { BackgroundArea } from '../Board/BackgroundArea';
+import { DragCard } from '../Drag/DragCard';
+import { SnapshotManager } from '../SnapshotManager';
 
 export function AnimationBoard(props) {
 

@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Circle } from 'react-konva';
-import { Card } from './Card';
-import { CanvasContext } from './CanvasContext';
+import { Card } from '../Card/Card';
+import { CanvasContext } from '../CanvasContext';
 
 export function DragCard(props) {
 

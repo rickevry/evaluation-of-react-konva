@@ -1,5 +1,5 @@
 import React from 'react';
-import { Theme } from './Settings';
+import { Theme } from '../Settings';
 import { HourCircle } from './HourCircle';
 import { UserCircle } from './UserCircle';
 import { CardId } from './CardId';

@@ -1,10 +1,10 @@
 import React, { useContext, useEffect } from 'react';
 import { Rect, Group, Text } from 'react-konva';
-import { Theme } from './Settings';
+import { Theme } from '../Settings';
 import { CardFooter } from './CardFooter';
 import { TagArea } from './TagArea';
-import { CanvasContext } from './CanvasContext';
-import { SnapshotManager } from './SnapshotManager';
+import { CanvasContext } from '../CanvasContext';
+import { SnapshotManager } from '../SnapshotManager';
 
 export function Card(props) {
 
@@ -29,7 +29,7 @@ export function Card(props) {
             setHeight(fullHeight);
         }
         if (props.done) {
-            SnapshotManager.schedule(props.id, props.x, props.y, Theme.CardWidth, height)
+            SnapshotManager.schedule(props.card.id, props.x, props.y, Theme.CardWidth, height)
         }
 }, [ref, props.done])
 

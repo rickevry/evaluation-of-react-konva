@@ -1,7 +1,7 @@
 import React from 'react';
-import { Theme } from './Settings';
-import { CenteredText } from './CenteredText';
-import { CenteredRect } from './CenteredRect';
+import { Theme } from '../Settings';
+import { CenteredText } from '../Atoms/CenteredText';
+import { CenteredRect } from '../Atoms/CenteredRect';
 
 function Tag(props) {
 

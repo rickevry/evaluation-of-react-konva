@@ -1,5 +1,5 @@
 import React from 'react';
-import { Theme } from './Settings';
+import { Theme } from '../Settings';
 import { Lane } from './Lane';
 
 let getLaneX = (index) => {

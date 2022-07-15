@@ -1,6 +1,6 @@
 import React from 'react';
-import { Theme } from './Settings';
-import { CenteredText } from './CenteredText';
+import { Theme } from '../Settings';
+import { CenteredText } from '../Atoms/CenteredText';
 
 export function CardId(props) {
 

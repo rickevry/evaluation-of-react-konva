@@ -1,5 +1,5 @@
 import React from 'react';
-import { Theme } from './Settings';
+import { Theme } from '../Settings';
 import { AnimationLane } from './AnimationLane';
 
 let getLaneX = (index) => {

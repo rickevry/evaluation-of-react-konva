@@ -1,10 +1,10 @@
 import React from 'react';
 import { Rect, Text } from 'react-konva';
-import { Theme } from './Settings';
-import { AnimationCard } from './AnimationCard';
-import { DragArea } from './DragArea';
+import { Theme } from '../Settings';
+import { Card } from '../Card/Card';
+import { DragArea } from '../Drag/DragArea';
 
-export function AnimationLane(props) {
+export function Lane(props) {
  
     if (props.index === 0) {
         console.log("!***************************************");
@@ -18,6 +18,7 @@ export function AnimationLane(props) {
     let [done, setDone] = React.useState(false);
 
     let [heightInfo, setHeightInfo] = React.useState({
+        done: false,
         counter: 0,
         array: Array(props.cards.length)
     });
@@ -67,17 +68,19 @@ export function AnimationLane(props) {
     let getCardY = (index) => {
         let top = Theme.LaneYpos + Theme.LaneTopPadding;
         if (index<0) return top;
-        if (heightInfo.array.length === heightInfo.counter) {
+        if (heightInfo.done || (heightInfo.array.length === heightInfo.counter)) {
             let start = heightInfo.array.reduce((acc, curr, _index) => {
                 if (_index<index) {
                     return acc + curr + Theme.CardGap;    
                 }
                 return acc;
             }, top);
+            console.log("y1", start);
+            heightInfo.done = true;
             return start;
-
         } else {
             let start = top + index*(Theme.CardHeight+Theme.CardGap);
+            console.log("y2", start);
             return start;
         }
     }
@@ -97,7 +100,7 @@ let renderDragArea = () => {
         <>
         <Rect cornerRadius={Theme.LaneRadius} x={props.x} width={Theme.LaneWidth} y={Theme.LaneYpos} height={800} fill={Theme.LaneColor} />
         <Text text={props.title} x={props.x+10} y={Theme.LaneYpos+10} fontSize={Theme.LaneTitleFontSize} />
-        {props.cards.map((card, index) => (<AnimationCard done={done} setHeight={(height) => setHeight(index, height, card.id)} y={getCardY(index)} x={getCardX()} key={index} card={card} index={index} />))}
+        {props.cards.map((card, index) => (<Card done={done} setHeight={(height) => setHeight(index, height, card.id)} y={getCardY(index)} x={getCardX()} key={index} card={card} index={index} />))}
         {renderDragArea()}
         </>
     );

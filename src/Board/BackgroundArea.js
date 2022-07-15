@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Rect } from 'react-konva';
-import { CanvasContext } from './CanvasContext';
+import { CanvasContext } from '../CanvasContext';
 
 export function BackgroundArea(props) {
 
